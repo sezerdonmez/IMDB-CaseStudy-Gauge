@@ -1,0 +1,8 @@
+
+
+# Go Google and Search <searchInput>
+
+* "https://www.google.com/" adresine git
+* "q" nameli input nesnesini bul ve <searchInput> textini gir
+* "btnK" nameli butona tikla
+* ilk siradaki arama sonucuna tikla

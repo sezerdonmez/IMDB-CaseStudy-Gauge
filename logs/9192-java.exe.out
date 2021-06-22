@@ -1,0 +1,38 @@
+{"logLevel":"debug","message":"multithreading is set to false"}
+{"logLevel":"debug","message":"Using reflection to scan dependencies for gauge implementations..."}
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+{"logLevel":"debug","message":"gauge-java took 649milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value."}
+{"logLevel":"debug","message":"run 'gauge config runner_connection_timeout' and verify that it is < 649"}
+{"logLevel":"debug","message":"starting gRPC server..."}
+{"logLevel":"debug","message":"started gRPC server on port 53774"}
+{"logLevel":"info","message":"Listening on port:53774"}
+{"logLevel":"debug","message":"Scanning packages for steps"}
+{"logLevel":"debug","message":"Comparing 'com.imdb.base.TestBase.staticWait' and 'com.imdb.base.TestBase.staticWait'"}
+{"logLevel":"debug","message":"Found {} saniye bekle in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.pages.GoogleHomePage.findElementById' and 'com.imdb.pages.GoogleHomePage.findElementById'"}
+{"logLevel":"debug","message":"Found {} ara in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.base.TestBase.openUrl' and 'com.imdb.base.TestBase.openUrl'"}
+{"logLevel":"debug","message":"Found {} adresine git in current project scope."}
+{"logLevel":"debug","message":"Scanning packages for hooks"}
+{"logLevel":"debug","message":"Scanned steps (using static parsing + reflections): "}
+{"logLevel":"debug","message":"\t{} saniye bekle : public void staticWait(ınt sec)"}
+{"logLevel":"debug","message":"\t{} ara : public void findElementById(String search)"}
+{"logLevel":"debug","message":"\t{} adresine git : public void openUrl(String url)"}
+Haz 09, 2021 2:42:11 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+Starting ChromeDriver 91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}) on port 12934
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Haz 09, 2021 2:42:12 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+{"logLevel":"debug","message":"Executing '{} adresine git' using 'class com.imdb.base.TestBase.openUrl"}
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.base.TestBase.staticWait"}
+Waited 3 seconds.
+{"logLevel":"debug","message":"Executing '{} ara' using 'class com.imdb.pages.GoogleHomePage.findElementById"}
+{"logLevel":"debug","message":"Killing Java runner..."}
+{"logLevel":"debug","message":"Stopping execution pool..."}
+{"logLevel":"debug","message":"Shutting down grpc server..."}
+{"logLevel":"debug","message":"Runner killed gracefully."}

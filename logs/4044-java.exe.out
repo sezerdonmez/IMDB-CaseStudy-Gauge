@@ -1,0 +1,99 @@
+{"logLevel":"debug","message":"multithreading is set to false"}
+{"logLevel":"debug","message":"Using reflection to scan dependencies for gauge implementations..."}
+{"logLevel":"debug","message":"gauge-java took 718milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value."}
+{"logLevel":"debug","message":"run 'gauge config runner_connection_timeout' and verify that it is < 718"}
+{"logLevel":"debug","message":"starting gRPC server..."}
+{"logLevel":"debug","message":"started gRPC server on port 59852"}
+{"logLevel":"info","message":"Listening on port:59852"}
+[pool-1-thread-1] INFO org.reflections.Reflections - Reflections took 2706 ms to scan 79 urls, producing 9710 keys and 52239 values 
+{"logLevel":"debug","message":"Scanning packages for steps"}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.chooseRandomSeri' and 'com.imdb.steps.StepImplementation.chooseRandomSeri'"}
+{"logLevel":"debug","message":"Found Dizilerden rastgele dizi sec in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.clickFirstSearch' and 'com.imdb.steps.StepImplementation.clickFirstSearch'"}
+{"logLevel":"debug","message":"Found ilk siradaki arama sonucuna tikla in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.checkTitles' and 'com.imdb.steps.StepImplementation.checkTitles'"}
+{"logLevel":"debug","message":"Found imdb web sitesine gidildigini dogrula in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.base.TestBase.findElementById' and 'com.imdb.base.TestBase.findElementById'"}
+{"logLevel":"debug","message":"Found {} ara in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.login' and 'com.imdb.steps.StepImplementation.login'"}
+{"logLevel":"debug","message":"Found {} adresini {} li alana ve {} bilgisini {} li alana gir ve giris yap in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.checkLogin' and 'com.imdb.steps.StepImplementation.checkLogin'"}
+{"logLevel":"debug","message":"Found {} isimli Kullanici girisi yapildi mi kontrol et in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.clickSignIn' and 'com.imdb.steps.StepImplementation.clickSignIn'"}
+{"logLevel":"debug","message":"Found Sign in butonuna tikla in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.staticWait' and 'com.imdb.steps.StepImplementation.staticWait'"}
+{"logLevel":"debug","message":"Found {} saniye bekle in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.openUrl' and 'com.imdb.steps.StepImplementation.openUrl'"}
+{"logLevel":"debug","message":"Found {} adresine git in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.findElementByName' and 'com.imdb.steps.StepImplementation.findElementByName'"}
+{"logLevel":"debug","message":"Found {} nameli input nesnesini bul ve {} textini gir in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.openMostPopularMovies' and 'com.imdb.steps.StepImplementation.openMostPopularMovies'"}
+{"logLevel":"debug","message":"Found En populer filmlere git in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.findButtonByName' and 'com.imdb.steps.StepImplementation.findButtonByName'"}
+{"logLevel":"debug","message":"Found {} nameli butona tikla in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.controlWatchList' and 'com.imdb.steps.StepImplementation.controlWatchList'"}
+{"logLevel":"debug","message":"Found Watchlist sayfasina git in current project scope."}
+{"logLevel":"debug","message":"Comparing 'com.imdb.steps.StepImplementation.deleteWatchListMovie' and 'com.imdb.steps.StepImplementation.deleteWatchListMovie'"}
+{"logLevel":"debug","message":"Found Watchlist sayfasini temizle in current project scope."}
+{"logLevel":"debug","message":"Scanning packages for hooks"}
+{"logLevel":"debug","message":"Scanned steps (using static parsing + reflections): "}
+{"logLevel":"debug","message":"\tilk siradaki arama sonucuna tikla : public void clickFirstSearch()"}
+{"logLevel":"debug","message":"\t{} isimli Kullanici girisi yapildi mi kontrol et : public void checkLogin(String name)"}
+{"logLevel":"debug","message":"\tEn populer filmlere git : public void openMostPopularMovies()"}
+{"logLevel":"debug","message":"\tWatchlist sayfasina git : public void controlWatchList()"}
+{"logLevel":"debug","message":"\t{} ara : public void findElementById(String search)"}
+{"logLevel":"debug","message":"\t{} adresine git : public void openUrl(String url)"}
+{"logLevel":"debug","message":"\tSign in butonuna tikla : public void clickSignIn()"}
+{"logLevel":"debug","message":"\tDizilerden rastgele dizi sec : public void chooseRandomSeri()"}
+{"logLevel":"debug","message":"\timdb web sitesine gidildigini dogrula : public void checkTitles()"}
+{"logLevel":"debug","message":"\t{} nameli input nesnesini bul ve {} textini gir : public void findElementByName(String name, String text)"}
+{"logLevel":"debug","message":"\t{} saniye bekle : public void staticWait(ınt sec)"}
+{"logLevel":"debug","message":"\tWatchlist sayfasini temizle : public void deleteWatchListMovie()"}
+{"logLevel":"debug","message":"\t{} adresini {} li alana ve {} bilgisini {} li alana gir ve giris yap : public void login(String eMail, String id, String password, String idp)"}
+{"logLevel":"debug","message":"\t{} nameli butona tikla : public void findButtonByName(String name)"}
+[pool-2-thread-1] INFO org.reflections.Reflections - Reflections took 1707 ms to scan 79 urls, producing 9641 keys and 44639 values 
+Haz 15, 2021 2:34:40 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+Starting ChromeDriver 91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}) on port 41204
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Haz 15, 2021 2:34:41 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+{"logLevel":"debug","message":"Executing '{} adresine git' using 'class com.imdb.steps.StepImplementation.openUrl"}
+Home page openned
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 3 seconds.
+{"logLevel":"debug","message":"Executing '{} nameli input nesnesini bul ve {} textini gir' using 'class com.imdb.steps.StepImplementation.findElementByName"}
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing '{} nameli butona tikla' using 'class com.imdb.steps.StepImplementation.findButtonByName"}
+{"logLevel":"debug","message":"Executing 'ilk siradaki arama sonucuna tikla' using 'class com.imdb.steps.StepImplementation.clickFirstSearch"}
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing 'imdb web sitesine gidildigini dogrula' using 'class com.imdb.steps.StepImplementation.checkTitles"}
+Web site opening failure: Titles not equal
+{"logLevel":"debug","message":"Executing 'Sign in butonuna tikla' using 'class com.imdb.steps.StepImplementation.clickSignIn"}
+{"logLevel":"debug","message":"Executing '{} adresini {} li alana ve {} bilgisini {} li alana gir ve giris yap' using 'class com.imdb.steps.StepImplementation.login"}
+IMDb sign in page opened
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing '{} isimli Kullanici girisi yapildi mi kontrol et' using 'class com.imdb.steps.StepImplementation.checkLogin"}
+User logged in
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing 'En populer filmlere git' using 'class com.imdb.steps.StepImplementation.openMostPopularMovies"}
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 3 seconds.
+{"logLevel":"debug","message":"Executing 'Dizilerden rastgele dizi sec' using 'class com.imdb.steps.StepImplementation.chooseRandomSeri"}
+[[ChromeDriver: chrome on WINDOWS (b1095a2f331d7ac53203de275465a02a)] -> xpath: //div[@class='ipc-sub-grid ipc-sub-grid--page-span-3 ipc-sub-grid--wrap FoldSplitterGrid__StyledSubGrid-tz9qri-0 iXSVOP ipc-page-grid__item ipc-page-grid__item--span-3']] chosen by randomly
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing 'Watchlist sayfasina git' using 'class com.imdb.steps.StepImplementation.controlWatchList"}
+{"logLevel":"debug","message":"Executing '{} saniye bekle' using 'class com.imdb.steps.StepImplementation.staticWait"}
+Waited 2 seconds.
+{"logLevel":"debug","message":"Executing 'Watchlist sayfasini temizle' using 'class com.imdb.steps.StepImplementation.deleteWatchListMovie"}
+{"logLevel":"debug","message":"Killing Java runner..."}
+{"logLevel":"debug","message":"Stopping execution pool..."}
+{"logLevel":"debug","message":"Shutting down grpc server..."}
+{"logLevel":"debug","message":"Runner killed gracefully."}
