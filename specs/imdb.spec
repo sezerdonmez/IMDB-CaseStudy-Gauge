@@ -1,24 +1,28 @@
-IMDB Example Scenario
-======================
+IMDB Example Scenarios
+=======================
 
->   Basit bir imdb sample projesi
+>   A simple IMDB project with Selenium ~ Gauge
 
 |           email         | password | userName |
 |-------------------------|----------|----------|
 |sedat_sevgili@hotmail.com|testci1234|   Sezer  |
 |   birisi@example.com    | 234sasaa |   Jeje   |
 
-IMDb Web Site Processes
-------------------------
+IMDb Watchlist Spec
+--------------------
+
 Tags: IMDb
-* Go Google and Search "imdb"
-* imdb web sitesine gidildigini dogrula
+* Go Google and Search for "imdb"
+* Confirm that successfully viewed IMDb web site
 * Login with <email> and <password>
-* <userName> isimli Kullanici girisi yapildi mi kontrol et
-* En populer filmlere git
-* "1" saniye bekle
-* Dizilerden rastgele dizi sec
-* Diziyi Watchliste ekle
-* Watchlist sayfasina git
-* Watchlist sayfasini temizle
-* "2" saniye bekle
+* Check that can <userName> named user sign in
+* Go most popular films
+* Choose a series randomly from series list
+* Control series page opened successfully
+* Add series to watch list
+* Go users watch list page
+* Click edit button in watchlist page
+* Click item selection check box button for select all items
+* Click DELETE button on watchlist edit page
+* Clear the users watch list page
+* Wait "2" seconds before next scenario

@@ -1,8 +1,8 @@
 [
-	"C:\\Program Files\\Gauge\\bin\\gauge.exe",
+	"/usr/local/bin/gauge",
 	"run",
 	"--machine-readable",
 	"--hide-suggestion",
 	"--simple-console",
-	"C:/Users/testinium/IdeaProjects/Junit/IMDB-CaseStudy/specs/imdb.spec:11"
+	"/Users/sedonmez/IMDB-CaseStudy/specs/imdb.spec:11"
 ]

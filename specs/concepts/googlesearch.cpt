@@ -1,8 +1,8 @@
 
 
-# Go Google and Search <searchInput>
+# Go Google and Search for <searchInput>
 
-* "https://www.google.com/" adresine git
-* "q" nameli input nesnesini bul ve <searchInput> textini gir
-* "btnK" nameli butona tikla
-* ilk siradaki arama sonucuna tikla
+* Go to "https://www.google.com.tr/" address
+* Find "q" input field submit <searchInput> text
+* Click "btnK" named google search button
+* Click first searching result

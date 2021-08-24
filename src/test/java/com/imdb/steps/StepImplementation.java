@@ -1,198 +1,177 @@
 package com.imdb.steps;
 
 import com.imdb.base.BaseTest;
-import com.imdb.utils.Elements;
 import com.thoughtworks.gauge.Step;
-import org.apache.commons.lang.ObjectUtils;
-import org.jsoup.Connection;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.SQLOutput;
 import java.util.List;
-
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static com.imdb.utils.Elements.*;
 
 public class StepImplementation extends BaseTest {
 
-    @Step("<url> adresine git")
-    public void openUrl(String url) {
+    @Step("Go to <url> address")
+    public void openUrl (String url) {
 
         driver.get(url);
         String actualTitle = driver.getTitle();
-        if (actualTitle.equals(GOOGLE_TITLE)) {
-            System.out.println("Home page openned");
-        } else {
-            System.out.println("Home page openning failure: Titles not equal");
-        }
+        assertThat(actualTitle, equalTo(GOOGLE_TITLE));
 
     }
 
-    @Step("<saniye> saniye bekle")
-    public void staticWait(int sec) {
+    @Step("Wait <second> seconds before next scenario")
+    public void staticWait (int sec) {
 
         try {
-            Thread.sleep(sec * 1000);
+            Thread.sleep(sec * 1000L);
             System.out.println("Waited " + sec + " seconds.");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    @Step("<name> nameli input nesnesini bul ve <text> textini gir")
-    public void findElementByName(String name, String text) {
-
+    @Step("Find <name> input field submit <text> text")
+    public void findElementByName (String name, String text) {
         WebElement googleSearchInput = driver.findElement(By.name(name));
-        googleSearchInput.clear();
-        highlightElement(googleSearchInput);
-        googleSearchInput.sendKeys(text);
+        sendKeysToElement(By.name(name), text);
+        googleSearchInput.sendKeys(Keys.ESCAPE);
+        assertThat(googleSearchInput.getAttribute("value"), equalTo(text));
     }
 
-    @Step("<name> nameli butona tikla")
-    public void findButtonByName(String name) {
+    @Step("Click <name> named google search button")
+    public void clickButtonByName (String name) {
 
-        WebElement googleSearchButton = driver.findElement(By.name(name));
-        highlightElement(googleSearchButton);
-        googleSearchButton.click();
+        clickAndHighlightAnElement(By.name(name));
+        waitUntilPageLoaded();
+        assertThat(getTextFromAnElement(googleSearchImdbTitle), equalTo("IMDb"));
     }
 
-    @Step("ilk siradaki arama sonucuna tikla")
-    public void clickFirstSearch() {
+    @Step("Click first searching result")
+    public void clickFirstSearch () {
 
-        waitUntilElementLocated(googleSearchResult);
-        WebElement firstSearchResult = driver.findElement(googleSearchResult);
-        firstSearchResult.click();
+        clickAnElement(googleSearchResult);
+        waitUntilPageLoaded();
     }
 
-    @Step("imdb web sitesine gidildigini dogrula")
-    public void checkTitles() {
+    @Step("Confirm that successfully viewed IMDb web site")
+    public void checkTitles () {
 
         String actualTitle = driver.getTitle();
-        if (actualTitle.equals(IMDB_TITLE)) {
-            System.out.println("IMDb web site opened");
-        } else {
-            System.out.println("Web site opening failure: Titles not equal");
-        }
+        assertThat(actualTitle, equalTo(IMDB_TITLE));
     }
 
-    @Step("Sign in butonuna tikla")
-    public void clickSignIn(){
+    @Step("Click Sign-In button")
+    public void clickSignIn () {
 
-        WebElement imdbSignInButton = driver.findElement(signInButton);
-        highlightElement(imdbSignInButton);
-        imdbSignInButton.click();
-    }
-
-    @Step("<email> adresini <id> li alana ve <password> bilgisini <idpass> li alana gir ve <button> ile giris yap")
-    public void login(String eMail, String id, String password, String idp, String button){
-
-        waitUntilElementLocated(signImdbButton);
-        WebElement signInWithIMDb = driver.findElement(signImdbButton);
-        highlightElement(signInWithIMDb);
-        signInWithIMDb.click();
+        clickAnElement(signInButton);
+        waitUntilPageLoaded();
         String actualTitle = driver.getTitle();
-
-        if (actualTitle.equals(IMDB_SIGN_IN)){
-            System.out.println("IMDb sign in page opened");
-        }
-        else {
-            System.out.println("Web site opening failure: Titles not equal");
-        }
-
-        waitUntilElementLocated(By.id(id));
-        WebElement inputEmail = driver.findElement(By.id(id));
-        inputEmail.clear();
-        inputEmail.sendKeys(eMail);
-
-        WebElement inputPassword = driver.findElement(By.id(idp));
-        inputPassword.clear();
-        inputPassword.sendKeys(password);
-
-        WebElement signInButton = driver.findElement(By.id(button));
-        signInButton.click();
-
+        assertThat(actualTitle, equalTo("Sign in with IMDb - IMDb"));
     }
 
-    @Step("<text> isimli Kullanici girisi yapildi mi kontrol et")
-    public void checkLogin(String name){
+    @Step("Go to Sign-In Page")
+    public void goToSignIn () {
 
-        WebElement checkLogin = driver.findElement(loginTextBox);
-        String actualTitle = checkLogin.getText();
-        if (actualTitle.equals(name)){
-            System.out.println("User logged in");
-        }
-        else {
-            System.out.println("User logging failure");
-        }
+        List<WebElement> registrationPageItems = driver.findElements(signImdbButton);
+        clickAnElementFromListWithText(registrationPageItems, SIGN_IN_TEXT);
+        String actualTitle = driver.getTitle();
+        assertThat(actualTitle, equalTo(IMDB_SIGN_IN));
     }
 
-    @Step("En populer filmlere git")
-    public void openMostPopularMovies(){
+    @Step("Submit the <email> adress to <id> and <password> to <idpass> and click <button> for sign-in")
+    public void login (String eMail, String id, String password, String idp, String button) {
 
-        waitUntilElementLocated(mostPopulars);
-        WebElement mostPopularButton = driver.findElement(mostPopulars);
-        scrollToElement(mostPopularButton);
-        mostPopularButton.click();
+        sendKeysToElement(By.id(id), eMail);
+
+        sendKeysToElement(By.id(idp), password);
+
+        clickAnElement(By.id(button));
+
+        waitUntilPageLoaded();
     }
 
-    @Step("Dizilerden rastgele dizi sec")
-    public void chooseRandomSeri(){
+    @Step("Check that can <username> named user sign in")
+    public void checkLogin (String name) {
+
+        List<WebElement> loginTextBoxList = driver.findElements(loginTextBox);
+        String actualName = getTextOfAnElementFromList(loginTextBoxList, 1);
+        assertThat(actualName, equalTo(name));
+    }
+
+    @Step("Go most popular films")
+    public void openMostPopularMovies () {
+
+        clickAndHighlightAnElement(mostPopulars);
+        waitUntilPageLoaded();
+        assertThat(getTextFromAnElement(mostPopularHeader), equalTo("What to Watch"));
+    }
+
+    @Step("Choose a series randomly from series list")
+    public void chooseRandomSeries () {
 
         List <WebElement> series = driver.findElements(seriesContainer);
-        deleteFirst12ElementsFromList(series);
-        WebElement randomSerie = chooseRandomElementFromList(series);
-        scrollToElement(randomSerie);
-        randomSerie.click();
+        List <WebElement> titleSeries = driver.findElements(titleOfSeries);
+        deleteElementsFromList(12, series);
+        deleteElementsFromList(12, titleSeries);
+        WebElement randomSeries = chooseRandomElementFromList(series);
+        titleOfChosenElement = titleSeries.get(indexOfChosenElement).getText();
+        scrollToElement(randomSeries);
+        randomSeries.click();
     }
 
-    @Step("Dizi sayfasina gidildigini kontrol et")
-    public void controlSeriesPage(){
+    @Step("Control series page opened successfully")
+    public void controlSeriesPage () {
 
-        WebElement seriesNameTitle = driver.findElement(seriesTitle);
-        String titleText = seriesNameTitle.getText();
-        if(!titleText.isEmpty()){
-            System.out.println("Dizi sayfasi acildi");
-        }
-        else {
-            System.out.println("Dizi sayfasi acilamadi");
-        }
+        waitUntilPageLoaded();
+        assertThat(titleOfChosenElement, equalTo(getTextFromAnElement(seriesNameInSeriesPage)));
+
     }
 
-    @Step("Diziyi Watchliste ekle")
-    public void addWatchList(){
+    @Step("Add series to watch list")
+    public void addWatchList () {
 
-        waitUntilElementLocated(addToWatchlistButton);
-        WebElement addWatchlist = driver.findElement(addToWatchlistButton);
-        scrollToElement(addWatchlist);
-        highlightElement(addWatchlist);
-        addWatchlist.click();
+        clickAndHighlightAnElement(addToWatchlistButton);
+        waitUntilPageLoaded();
     }
 
-    @Step("Watchlist sayfasina git")
-    public void controlWatchList(){
+    @Step("Go users watch list page")
+    public void controlWatchList () {
 
-        waitUntilElementLocated(goWatchlistButton);
-        WebElement watchListButton = driver.findElement(goWatchlistButton);
-        scrollToElement(watchListButton);
-        highlightElement(watchListButton);
-        watchListButton.click();
+        clickAndHighlightAnElement(goWatchlistButton);
+        waitUntilPageLoaded();
+        assertThat(driver.getTitle(), equalTo(WATCHLIST_TITLE));
     }
 
-    @Step("Watchlist sayfasini temizle")
-    public void deleteWatchListMovie(){
+    @Step("Click edit button in watchlist page")
+    public void clickEditWatchlist () {
 
-        waitUntilElementLocated(editWatchlistButton);
-        WebElement editButton = driver.findElement(editWatchlistButton);
-        editButton.click();
-        WebElement checkBox = driver.findElement(checkBoxButton);
-        checkBox.click();
-        WebElement deleteItems = driver.findElement(deleteItemsButton);
-        deleteItems.click();
-        waitUntilElementLocated(acceptRequestButton);
-        WebElement acceptRequest = driver.findElement(acceptRequestButton);
-        acceptRequest.click();
+        clickAnElement(editWatchlistButton);
+        waitUntilElementVisible(watchlistSettings);
+    }
+
+    @Step("Click item selection check box button for select all items")
+    public void clickCheckBox () {
+
+        clickAnElement(checkBoxButton);
+        assertThat(1, equalTo(Integer.parseInt(driver.findElement(selectedElements).getText())));
+    }
+
+    @Step("Click DELETE button on watchlist edit page")
+    public void clickDeleteButton () {
+
+
+        clickAndHighlightAnElement(deleteItemsButton);
+        waitUntilElementVisible(deletePopUpText);
+
+    }
+    @Step("Clear the users watch list page")
+    public void deleteWatchListChoices () {
+
+        clickAnElement(acceptRequestButton);
+        driver.navigate().refresh();
+        assertThat("0", equalTo(driver.findElement(emptyWatchListText).getText()));
     }
 }

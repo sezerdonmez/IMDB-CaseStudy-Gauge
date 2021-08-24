@@ -2,5 +2,6 @@
 
 # Login with <username> and <password>
 
-* Sign in butonuna tikla
-* <username> adresini "ap_email" li alana ve <password> bilgisini "ap_password" li alana gir ve "signInSubmit" ile giris yap
+* Click Sign-In button
+* Go to Sign-In Page
+* Submit the <username> adress to "ap_email" and <password> to "ap_password" and click "signInSubmit" for sign-in
