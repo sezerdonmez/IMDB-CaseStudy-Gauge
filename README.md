@@ -1,3 +1,3 @@
-## A Simle IMDb Scenario
+## A Simple IMDb Scenario
 
 > Used Selenium ~ Gauge ~ JUnit4 (Java)
