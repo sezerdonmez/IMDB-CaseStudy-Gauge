@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class Elements {
 
     // Google Elements
-    public static By googleSearchResult     = By.xpath("//h3[@class='LC20lb DKV0Md']");
+    public static By googleImdbSearchResult     = By.cssSelector("[href='https://www.imdb.com/'] h3");
     public static By googleSearchImdbTitle  = By.cssSelector("[data-attrid='title']");
 
     // IMDb Home Page Elements

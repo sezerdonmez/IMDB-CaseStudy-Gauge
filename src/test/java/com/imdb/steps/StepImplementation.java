@@ -52,7 +52,7 @@ public class StepImplementation extends BaseTest {
     @Step("Click first searching result")
     public void clickFirstSearch () {
 
-        clickAnElement(googleSearchResult);
+        clickAnElement(googleImdbSearchResult);
         waitUntilPageLoaded();
     }
 
